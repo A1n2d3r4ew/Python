@@ -6,7 +6,7 @@ n = int(input())
 m = int(input())
 k = int(input())
 
-if (k > n or k > m):
+if (k > n or k > m) and k < m * n:
     print("Yes")
 else:
     print("No")
