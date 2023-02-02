@@ -11,18 +11,8 @@
 
 s = int(input())
 p = int(input())
-
 num = 0
 num1 = 0
-
-# while i == num and i == num1 :
-#     num = i + i
-#     if num == s:
-#         num1 = i * i
-#         if num1 == p:5
-#             print(num, num1)
-# else:
-#     i += 1
 
 for i in range(0,10):
     for j in range(0,10):
