@@ -7,7 +7,7 @@
 
 # 5 -> 1 0 1 1 0
 # 2
-
+#
 coins = int(input())
 coins_emblem = 0
 coins_tails =int(0)

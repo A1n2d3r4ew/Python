@@ -3,7 +3,7 @@
 # Пример:
 
 # 10 -> 1 2 4 8
-
+#
 number = int(input())
 degree = 1
 
