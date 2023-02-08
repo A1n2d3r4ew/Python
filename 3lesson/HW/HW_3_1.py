@@ -10,16 +10,22 @@
 # 1 2 3 4 5
 # 6
 # -> 5
-import random
+from random import randint
 
-array = []
+
 n = int(input("Введите кол-во элементов: "))
-array = [i for i in random.sample(range(1, n + 1), n)]
+array = [randint(1, 50) for _ in range(n)]
 
 print(array)
 
 b = int(input())
 m = min(array, key=lambda x: abs(x-b))
+# m = array[0]
+
+# for i in array: 
+#     if abs(b - i) < abs(b - m):
+#         m = i
+
 
 print(m)
 
