@@ -57,17 +57,19 @@ if not path.exists(file_base):
         pass
 
 
-def read_records():
-    global all_data, id
+def read_records(): # считывает данные из базы
+    global all_data, id 
 
     with open(file_base) as f:
         all_data = [i.strip() for i in f]
         if all_data:
             id = int(all_data[-1][0])
+
     return all_data
 
 
 def show_all():
+
     if not all_data:
         print("Empty data")
     else:
@@ -75,8 +77,10 @@ def show_all():
 
 def add_new_contact():
     global id
+
     array = ['Surname','name','last_name','phone_number']
     string = ''
+
     for i in array:
         string += input(f"enter {i} ") + " "
     id += 1
@@ -107,33 +111,35 @@ def search_rec():
         #     case "3":    
 # search_rec()
 
-# def change_contact():
-#     def change_rec():
-#         with open(file_base,'r') as f, open(file_base, 'w') as f2:
-#             line = f.readlines()
-#             print("Search :")
-#             search = (input())
-#             for i in line:
-#                 i = i.strip()
-#                 if i == (search):
-#                     f2.write(input())
-#                 else:
-#                     f2.write(i)     разобраться и доделать
+def delete():
+    global all_data
 
+    symbol = "\n"
+    show_all()
+    del_rec = input("Enter the record id: ")
 
-    finish = True
-    while finish:
-        answer = input("Change a record:\n"
-                       "1. Change a record\n"
-                       "2. Delete a contact\n"
-                       "3. Exit\n")
-        match answer:
-            case "1":
-                change_rec()
-            case "2":
-                pass
-            case "3":
-                finish = False
+    if exits_contant(del_rec, ""):
+        all_data = [k for k in all_data if k[0] != del_rec]
+
+        with open(file_base, "w", encoding='utf-8') as f:
+            f.write(f'{symbol.join(all_data)}\n')
+        print("Record deleted!\n")
+    else:
+        print("The data is not correct")
+
+    # finish = True
+    # while finish:
+    #     answer = input("Change a record:\n"
+    #                    "1. Change a record\n"
+    #                    "2. Delete a contact\n"
+    #                    "3. Exit\n")
+    #     match answer:
+    #         case "1":
+    #             change_rec()
+    #         case "2":
+    #             pass
+    #         case "3":
+    #             finish = False
 
 
 
@@ -155,7 +161,7 @@ def main_menu():
             case "3":
                 search_rec()
             case "4":
-                change_contact()
+                delete()
             case "5":
                 play = False # выход 
             case _:
