@@ -108,6 +108,32 @@ def search_rec():
 # search_rec()
 
 # def change_contact():
+#     def change_rec():
+#         with open(file_base,'r') as f, open(file_base, 'w') as f2:
+#             line = f.readlines()
+#             print("Search :")
+#             search = (input())
+#             for i in line:
+#                 i = i.strip()
+#                 if i == (search):
+#                     f2.write(input())
+#                 else:
+#                     f2.write(i)     разобраться и доделать
+
+
+    finish = True
+    while finish:
+        answer = input("Change a record:\n"
+                       "1. Change a record\n"
+                       "2. Delete a contact\n"
+                       "3. Exit\n")
+        match answer:
+            case "1":
+                change_rec()
+            case "2":
+                pass
+            case "3":
+                finish = False
 
 
 
